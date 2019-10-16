@@ -13,7 +13,6 @@ class KategoriArtikelController extends Controller
 
     	return view('kategori_artikel.index',compact('KategoriArtikel'));    
     }
-    
     public function show($id)
     {
     	$KategoriArtikel = \App\KategoriArtikel::find($id);
@@ -28,5 +27,25 @@ class KategoriArtikelController extends Controller
     	$input=$request->all();
     	KategoriArtikel::create($input);
     	return redirect(route('kategori_artikel.index'));
+    }
+    public function edit($id){
+        $KategoriArtikel=KategoriArtikel::find($id);
+        return view('kategori_artikel.edit',compact('KategoriArtikel'));
+    }
+    public function update($id, Request $request){
+        $KategoriArtikel=KategoriArtikel::find($id);
+        $input=$request->all();
+
+
+        $KategoriArtikel->update($input);
+
+        return redirect(route('kategori_artikel.index'));
+    }
+    public function destroy($id){
+        $KategoriArtikel=KategoriArtikel::find($id);
+
+        $KategoriArtikel->delete();
+
+        return redirect(route('kategori_artikel.index'));
     }
 }

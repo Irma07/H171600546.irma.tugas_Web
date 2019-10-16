@@ -11,8 +11,8 @@
 				<table border="2">
 				<tr>
 					<td> ID </td>
-					<td> nama </td>
-					<td> Keterangan </td>
+					<td> Nama </td>
+					<td> Ketrangan </td>
 					<td> Path </td>
 					<td> User Id </td>
 					<td> Create </td>
@@ -20,15 +20,19 @@
 				</tr>
 @foreach ($Galeri as $item)
 <tr>
-					<td> {!! $item-> id !!} </td>
-					<td> {!! $item-> nama!!} </td>
-					<td> {!! $item-> keterangan !!} </td>
-					<td> {!! $item-> path !!} </td>
-					<td> {!! $item-> users_id !!} </td>
-					<td> {!! $item-> created_at !!} </td>
-					<td>
-						<a href="{!! route('galeri.show',[$item->id]) !!}" class="btn btn-sm btn-success"> Lihat </a>
-					</td>
+	<td> {!! $item-> id !!} </td>
+	<td> {!! $item-> nama !!} </td>
+	<td> {!! $item-> keterangan !!} </td>
+	<td> {!! $item-> path !!}</td>
+	<td> {!! $item-> users_id !!} </td>
+	<td> {!! $item-> created_at !!} </td>
+	<td>
+						<a href="{!! route('galeri.show',[$item->id])!!}" class="btn btn-sm btn-success">lihat </a>
+					<a href="{!! route('galeri.edit',[$item->id])!!}" class="btn btn-sm btn-danger">ubah</a>
+					{!! Form::open(['route'=>['galeri.destroy',$item->id],'method'=>'delete']) !!}
+					{!! Form::submit('Hapus',['class'=>"btn btn-sm btn-warning"]); !!}
+					{!! Form::close() !!}
+		</td>
 </tr>
 @endforeach 	
 				</table>	

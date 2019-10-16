@@ -6,10 +6,12 @@
 	<div class="row justify-content-center">
 		<div class="col-md-8">
 			<div class="card">
-				<div class="card-header">berita</div>
+				<div class="card-header">Berita</div>
 					<div class="card-body">
-						<form method="POST" action="{!! route('berita.store') !!}">
-							@include('berita.form');
+						{!!	Form::open(['route' => 'berita.store', 'method' => 'post']) !!}
+							@include('berita.form')
+						{!! Form::close() !!}
+			
 						</form>
 					</div>
 				</div>

@@ -14,18 +14,21 @@
 					<td> Judul </td>
 					<td> Isi </td>
 					<td> User Id </td>
-					<td> Create </td>
+					
 					<td> Aksi </td>
 				</tr>
 @foreach ($Artikel as $item)
 <tr>
-					<td> {!! $item-> id !!} </td>
-					<td> {!! $item-> judul!!} </td>
-					<td> {!! $item-> isi !!} </td>
-					<td> {!! $item-> users_id !!} </td>
-					<td> {!! $item-> created_at !!} </td>
-					<td>
-						<a href="{!! route('artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success"> Lihat </a>
+	<td> {!! $item-> id !!} </td>
+	<td> {!! $item-> judul!!} </td>
+	<td> {!! $item-> isi !!} </td>
+	<td> {!! $item-> users_id !!} </td>
+	<td>
+					<a href="{!! route('artikel.show',[$item->id])!!}" class="btn btn-sm btn-success">lihat </a>
+					<a href="{!! route('artikel.edit',[$item->id])!!}" class="btn btn-sm btn-danger">ubah</a>
+					{!! Form::open(['route'=>['artikel.destroy',$item->id],'method'=>'delete']) !!}
+					{!! Form::submit('Hapus',['class'=>"btn btn-sm btn-warning"]); !!}
+					{!! Form::close() !!}
 					</td>
 </tr>
 @endforeach 	

@@ -8,15 +8,17 @@
 			<div class="card">
 				<div class="card-header">artikel</div>
 					<div class="card-body">
-						<form method="POST" action="{!! route('artikel.store') !!}">
+						{!! Form::open(['route'=>'artikel.store', 'method' =>'post']) !!}
 							@include('artikel.form');
-						</form>
+						{!! Form::close() !!}
+					
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
 
 @endsection
 

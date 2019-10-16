@@ -29,7 +29,7 @@
 </div>
 <div class="form-group row mb-0">
 <div class="cold-md-6 offset-md-4">
-	<a href="{!! route('kategori_berita.index') !!}" class="btn btn-primary">Kembali</a>
+	<a href="{!! route('kategori_berita.index') !!}" class="btn btn-primary">Liat Kembali</a>
 </div>
 </div>
 </div>
